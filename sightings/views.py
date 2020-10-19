@@ -37,8 +37,8 @@ def stats(request):
 	Unique_Squirrel_ID_count = scd.count()
 	Date_min = scd.filter().aggregate(Min('date'))["date__min"]
 	Date_max = scd.filter().aggregate(Max('date'))["date__max"]
-	Age_Adult_count = scd.filter(age = "Adult").count()
-	Age_Juvenile_count = scd.filter(age = "Juvenile").count()
+	Age_Adult_count = scd.filter(age = "ADULT").count()
+	Age_Juvenile_count = scd.filter(age = "JUVENILE").count()
 	Shift_AM_count = scd.filter(shift = "AM").count()
 	Shift_PM_count = scd.filter(shift = "PM").count()
 	Latitude_min = scd.filter().aggregate(Min('latitude'))["latitude__min"]

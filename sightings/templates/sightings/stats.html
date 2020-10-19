@@ -2,6 +2,12 @@
 <html>
 <head>
 	<title>Park Squirrel Census data</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
 	function altRows(id){
@@ -36,54 +42,31 @@
 	table.altrowstable {
 	    font-family: verdana,arial,sans-serif;
 	    font-size:11px;
-	    color:#333333;
+	    color:rgb(124, 122, 122);
 	    border-width: 1px;
-	    border-color: #a9c6c9;
+	    border-color:#ffffff;
 	    border-collapse: collapse;
 	}
 	table.altrowstable th {
-	    border-width: 1px;
+	    border-width: 5px;
 	    padding: 8px;
 	    border-style: solid;
-	    border-color: #a9c6c9;
+	    border-color:rgb(255, 255, 255);
 	}
 	table.altrowstable td {
 	    border-width: 1px;
 	    padding: 8px;
 	    border-style: solid;
-	    border-color: #a9c6c9;
+	    border-color:rgb(255, 255, 255);
 	}
 	.oddrowcolor{
-	    background-color:#d4e3e5;
+	    background-color:lavenderblush;
 	}
 	.evenrowcolor{
-	    background-color:#c3dde0;
+	    background-color:mistyrose;
 	}
 </style>
-<style type="text/css">
-	msdn {
 
-	}
-	DIV.msdn {
-		width:80%;
-	PADDING-RIGHT: 6px; PADDING-LEFT: 0px; FONT-SIZE: 13px; PADDING-BOTTOM: 4px; COLOR: #313031; PADDING-TOP: 4px; FONT-FAMILY: Verdana,Tahoma,Arial,Helvetica,Sans-Serif; BACKGROUND-COLOR: #fff; TEXT-ALIGN: right
-	}
-	DIV.msdn A {
-		BORDER-RIGHT: #b7d8ee 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #b7d8ee 1px solid; PADDING-LEFT: 5px; PADDING-BOTTOM: 4px; MARGIN: 0px 3px; BORDER-LEFT: #b7d8ee 1px solid; COLOR: #0030ce; PADDING-TOP: 5px; BORDER-BOTTOM: #b7d8ee 1px solid; TEXT-DECORATION: none
-	}
-	DIV.msdn A:hover {
-		BORDER-RIGHT: #b7d8ee 1px solid; BORDER-TOP: #b7d8ee 1px solid; BORDER-LEFT: #b7d8ee 1px solid; COLOR: #0066a7; BORDER-BOTTOM: #b7d8ee 1px solid; BACKGROUND-COLOR: #d2eaf6
-	}
-	DIV.pagination A:active {
-		BORDER-RIGHT: #b7d8ee 1px solid; BORDER-TOP: #b7d8ee 1px solid; BORDER-LEFT: #b7d8ee 1px solid; COLOR: #0066a7; BORDER-BOTTOM: #b7d8ee 1px solid; BACKGROUND-COLOR: #d2eaf6
-	}
-	DIV.msdn SPAN.current {
-		BORDER-RIGHT: #b7d8ee 1px solid; PADDING-RIGHT: 6px; BORDER-TOP: #b7d8ee 1px solid; PADDING-LEFT: 5px; FONT-WEIGHT: bold; PADDING-BOTTOM: 4px; MARGIN: 0px 3px; BORDER-LEFT: #b7d8ee 1px solid; COLOR: #444444; PADDING-TOP: 5px; BORDER-BOTTOM: #b7d8ee 1px solid; BACKGROUND-COLOR: #d2eaf6
-	}
-	DIV.msdn SPAN.disabled {
-		DISPLAY: none
-	}
-</style>
 <style type="text/css">
 	input {
 		/*width:20;*/
@@ -92,9 +75,9 @@
 	
 	.button {
 		width:100px;
-		height: 30px;
+		height: 50px;
 		margin: 5px 50px;
-		background:#d4e3e5;
+		background:snow;
 	}
 	div {
 		text-align: center;
@@ -104,50 +87,53 @@
 
 </style>
 <body>
-	<div>
-		<h2>Particular stats</h2>
+	<div class="container">
+		<div class="card bg-danger text-white text-center display-4 font-weight-bold">
+			<div class="card-body">Particular Stats</div>
+		</div>
 	</div>
 	<div>
+
 		<table class="altrowstable" id="alternatecolor">
 			<tbody>
 				<tr>
-					<th>data count:</th>
+					<th>Data Count:</th>
 					<th>{{data_count}}</th>
 					<th></th>
 					<th></th>
 				</tr>
 				<tr>
-					<th>UniqueSquirrelID count:</th>
+					<th>UniqueSquirrelID Count:</th>
 					<th>{{Unique_Squirrel_ID_count}}</th>
 					<th></th>
 					<th></th>
 				</tr>
 				<tr>
 					<th>Latitude:</th>
-					<th>min:{{Latitude_min}}</th>
-					<th>max:{{Latitude_max}}</th>
-					<th>avg:{{Latitude_avg}}</th>
+					<th>MIN:{{Latitude_min}}</th>
+					<th>MAX:{{Latitude_max}}</th>
+					<th>AVG:{{Latitude_avg}}</th>
 				</tr>
 				<tr>
 					<th>Longitude:</th>
-					<th>min:{{Longitude_min}}</th>
-					<th>max:{{Longitude_max}}</th>
-					<th>avg:{{Longitude_avg}}</th>
+					<th>MIN:{{Longitude_min}}</th>
+					<th>MAX:{{Longitude_max}}</th>
+					<th>AVG:{{Longitude_avg}}</th>
 				</tr>
 				<tr>
 					<th>Date:</th>
-					<th>min:{{Date_min}} </th>
-					<th>max:{{Date_max}}</th>
+					<th>MIN:{{Date_min}} </th>
+					<th>MAX:{{Date_max}}</th>
 					<th></th>
 				</tr>
 				<tr>
-					<th>Age count:</th>
+					<th>Age Count:</th>
 					<th>Adult:{{Age_Adult_count}}</th>
 					<th>Juvenile:{{Age_Juvenile_count}}</th>
 					<th></th>
 				</tr>
 				<tr>
-					<th>Shift count:</th>
+					<th>Shift Count:</th>
 					<th>AM:{{Shift_AM_count}}</th>
 					<th>PM:{{Shift_PM_count}}</th>
 					<th></th>
