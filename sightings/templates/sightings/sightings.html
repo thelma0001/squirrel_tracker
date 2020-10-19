@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Squirrels</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+		<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+		<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+		<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+	  </head>
+	<body>
+
+	<head>
+		<title>This is the sightings view</title>
+	</head>
+
+	<body>
+		<body style="background-color:mistyrose">
+		<div class="container">
+			<div class="card bg-danger text-white text-center display-4 font-weight-bold">
+				<div class="card-body">Squirrel Sighting Lists</div>
+			</div>
+		</div>
+
+		<div class="bridge-scenes-warp">
+			<div class="scenes-item text-center">
+				<img src="https://cdn2.ettoday.net/images/392/d392170.jpg" alt="" class="img-rounded" height="330" width="500">
+				<img src="https://photo.orsoon.com/180516/JPG180516_542/52CfGUJEpU_small.jpg" alt="" class="img-rounded" height="330" width="600">
+				<div class="scenes-info r">
+					<h2 class="scenes-title card-body">Find where squirrels live and update their sightings!</h2>
+					<p class="scenes-des black font-italic">Every squirrel has its unique squirrel ID and you can find the specific one according to this number.</p>
+					<p class="scenes-des black ">See statistics of current squirrel databse.</p>
+					<a href="/sightings/stats" class="btn btn-danger btn-sm" role="button">Stats</a>
+					<p class="scenes-des black font-italic">Click the "Update" button to refresh information of squirrels!</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="list-group text-center">
+			{% for squirrel in squirrels %}
+			  <dl>
+				<dt class="text-danger">{{squirrel.unique_squirrel_id}}</dt>
+				<dd class="text-muted">{{squirrel.date}}</dd>
+				<a href="/sightings/{{squirrel.unique_squirrel_id}}" class="btn btn-danger btn-sm" role="button">Update</a>
+			  </dl>
+			  {% endfor %}
+		  </div>
+	</body>
+	</head>
+</html>
