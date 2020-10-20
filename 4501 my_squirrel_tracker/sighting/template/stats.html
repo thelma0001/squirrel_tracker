@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Particular Stats</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+	<script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+	<script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+<script type="text/javascript">
+	function altRows(id){
+	    if(document.getElementsByTagName){ 
+	         
+	        var table = document.getElementById(id); 
+	        var rows = table.getElementsByTagName("tr");
+	          
+	        for(i = 0; i < rows.length; i++){         
+	            if(i % 2 == 0){
+	                rows[i].className = "evenrowcolor";
+	            }else{
+	                rows[i].className = "oddrowcolor";
+	            }     
+	        }
+	    }
+	}
+	 
+	window.onload=function(){
+	    altRows('alternatecolor');
+	    altRows('alternatecolor2');
+	}
+</script>
+
+<style type="text/css">
+	table {
+		width: 100%;
+		text-align: center;
+		margin: 0 auto;
+
+	}
+	table.altrowstable {
+	    font-family: verdana,arial,sans-serif;
+	    font-size:11px;
+	    color:rgb(124, 122, 122);
+	    border-width: 1px;
+	    border-color:#ffffff;
+	    border-collapse: collapse;
+	}
+	table.altrowstable th {
+	    border-width: 5px;
+	    padding: 8px;
+	    border-style: solid;
+	    border-color:rgb(255, 255, 255);
+	}
+	table.altrowstable td {
+	    border-width: 1px;
+	    padding: 8px;
+	    border-style: solid;
+	    border-color:rgb(255, 255, 255);
+	}
+	.oddrowcolor{
+	    background-color:lavenderblush;
+	}
+	.evenrowcolor{
+	    background-color:mistyrose;
+	}
+</style>
+
+<style type="text/css">
+	input {
+		/*width:20;*/
+		height:100%;
+	}
+	
+	.button {
+		width:100px;
+		height: 50px;
+		margin: 5px 50px;
+		background:snow;
+	}
+	div {
+		text-align: center;
+		margin: 0 auto;
+		width: 70%;
+	}
+
+</style>
+<body>
+	<div>
+		<span> | </span>
+		<a href="/sightings" >Sightings</a>
+		<span> | </span>
+		<a href="/sightings/add" >Add</a>
+		<span> | </span>
+		<a href="/sightings/update" >Update</a>
+		<span> | </span>
+		<a href="/sightings/stats" >Stats</a>
+		<span> | </span>
+	</div>
+	<div class="container" style="width: 70%;height:70%;">
+		<div class="card bg-danger text-white text-center display-4 font-weight-bold">
+			<div class="card-body" style="font-size: 50%">Particular Stats</div>
+		</div>
+	</div>
+	<br>
+	<div>
+
+		<table class="altrowstable" id="alternatecolor">
+			<tbody>
+				<tr>
+					<th>Data Count:</th>
+					<th>{{data_count}}</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>UniqueSquirrelID Count:</th>
+					<th>{{Unique_Squirrel_ID_count}}</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>Latitude:</th>
+					<th>MIN:{{Latitude_min}}</th>
+					<th>MAX:{{Latitude_max}}</th>
+					<th>AVG:{{Latitude_avg}}</th>
+				</tr>
+				<tr>
+					<th>Longitude:</th>
+					<th>MIN:{{Longitude_min}}</th>
+					<th>MAX:{{Longitude_max}}</th>
+					<th>AVG:{{Longitude_avg}}</th>
+				</tr>
+				<tr>
+					<th>Date:</th>
+					<th>MIN:{{Date_min}} </th>
+					<th>MAX:{{Date_max}}</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>Age Count:</th>
+					<th>Adult:{{Age_Adult_count}}</th>
+					<th>Juvenile:{{Age_Juvenile_count}}</th>
+					<th></th>
+				</tr>
+				<tr>
+					<th>Shift Count:</th>
+					<th>AM:{{Shift_AM_count}}</th>
+					<th>PM:{{Shift_PM_count}}</th>
+					<th></th>
+				</tr>
+			</tbody>
+		</table>
+	<br>
+	</div>
+
+
+</body>
+</html>

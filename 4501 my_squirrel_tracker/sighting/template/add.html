@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add Squirrel Census data</title>
+	<link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<script type="text/javascript">
+	function altRows(id){
+	    if(document.getElementsByTagName){ 
+	         
+	        var table = document.getElementById(id); 
+	        var rows = table.getElementsByTagName("tr");
+	          
+	        for(i = 0; i < rows.length; i++){         
+	            if(i % 2 == 0){
+	                rows[i].className = "evenrowcolor";
+	            }else{
+	                rows[i].className = "oddrowcolor";
+	            }     
+	        }
+	    }
+	}
+	 
+	window.onload=function(){
+	    altRows('alternatecolor1');
+	    altRows('alternatecolor2');
+	}
+</script>
+
+<style type="text/css">
+	table {
+		width: 100%;
+		text-align: center;
+		margin: 0 auto;
+
+	}
+	table.altrowstable {
+	    font-family: verdana,arial,sans-serif;
+	    font-size:11px;
+	    color:rgb(124, 122, 122);
+	    border-width: 1px;
+	    border-color:#ffffff;
+	    border-collapse: collapse;
+	}
+	table.altrowstable th {
+	    border-width: 5px;
+	    padding: 8px;
+	    border-style: solid;
+	    border-color:rgb(255, 255, 255);
+	}
+	table.altrowstable td {
+	    border-width: 1px;
+	    padding: 8px;
+	    border-style: solid;
+	    border-color:rgb(255, 255, 255);
+	}
+	.oddrowcolor{
+	    background-color:lavenderblush;
+	}
+	.evenrowcolor{
+	    background-color:mistyrose;
+	}
+</style>
+
+<style type="text/css">
+	input {
+		/*width:20;*/
+		height:100%;
+	}
+	
+	.button {
+		width:100px;
+		height: 30px;
+		margin: 5px 50px;
+		background:#d4e3e5;
+	}
+	div {
+		text-align: center;
+		margin: 0 auto;
+		width: 90%;
+	}
+
+</style>
+<body>
+	<div>
+		<span> | </span>
+		<a href="/sightings" >Sightings</a>
+		<span> | </span>
+		<a href="/sightings/add" >Add</a>
+		<span> | </span>
+		<a href="/sightings/update" >Update</a>
+		<span> | </span>
+		<a href="/sightings/stats" >Stats</a>
+		<span> | </span>
+	</div>
+	<div class="container" style="width: 70%;height:70%;">
+		<div class="card bg-danger text-white text-center display-4 font-weight-bold">
+			<div class="card-body" style="font-size: 50%">Add Squirrel Census data</div>
+		</div>
+	</div>
+	<br>
+	<div>
+		<form action="/sightings/add" method="post" class="form" enctype="multipart/form-data">
+			{% csrf_token%}
+			<table class="altrowstable" id="alternatecolor1">
+				<tbody>
+					<tr>
+						<th>ID</th>
+						<th>Latitude</th>
+						<th>Longitude</th>		
+						<th>Unique Squirrel ID</th>
+						<th>Shift</th>
+						<th>Date</th>
+						<th>Age</th>
+					</tr>
+					<tr>
+						<th></th>
+						<th><input id="Latitude" type="text" name="Latitude" /></th>
+						<th><input id="Longitude" type="text" name="Longitude" /></th>
+						<th><input id="Unique_Squirrel_ID" type="text" name="Unique_Squirrel_ID" /></th>
+						<th><input id="Shift" type="text" name="Shift" /></th>
+						<th><input id="Date" type="text" name="Date" /></th>
+						<th><input id="Age" type="text" name="Age" /></th>
+					</tr>
+				</tbody>
+			</table>
+			<br>
+			<input type="submit" id="Add" class="btn btn-danger btn-sm" value="Add" />
+		</form>
+		<br>
+		<strong>{{msg}}</strong>
+	</div>
+
+</body>
+</html>
