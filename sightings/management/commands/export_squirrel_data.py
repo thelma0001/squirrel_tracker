@@ -1,5 +1,5 @@
 from django.core.management import BaseCommand
-from sighting.models import SquirrelCensusDatas
+from sightings.models import Squirrel
 
 class Command(BaseCommand):
 	def add_arguments(self, parser):
@@ -11,24 +11,24 @@ class Command(BaseCommand):
 
 	def handle(self, *args, **options):
 		file_path = options["file_path"]
-		all = SquirrelCensusDatas.objects.all()
+		all = Squirrel.objects.all()
 		# print(len(all))
 		file = open(file_path,'w')
 		file.write("Latitude,Longitude,Unique Squirrel ID,Shift,Date,Age\n")
 		for data in all:
-			write_str = "{},{},{},{},{},{}\n".format(data.Latitude,data.Longitude,data.Unique_Squirrel_ID,data.Shift,data.Date,data.Age)
+			write_str = "{},{},{},{},{},{}\n".format(data.latitude,data.longitude,data.unique_squirrel_id,data.shift,data.date,data.age)
 			file.write(write_str)
 		file.close()
 		# print("export_squirrel_data")
 
 
 if __name__ == "__main__":
-	file_path = "C:/Users/Administrator/Desktop/file.csv"
-	all = SquirrelCensusDatas.objects.all()
+	file_path = "."
+	all = Squirrel.objects.all()
 	print(len(all))
 	file = open(file_path,'w')
 	file.write("Latitude,Longitude,Unique Squirrel ID,Shift,Date,Age\n")
 	for data in all:
-		write_str = "{},{},{},{},{},{}\n".format(data.Latitude,data.Longitude,data.Unique_Squirrel_ID,data.Shift,data.Date,data.Age)
+		write_str = "{},{},{},{},{},{}\n".format(data.latitude,data.longitude,data.unique_squirrel_id,data.shift,data.date,data.age)
 		file.write(write_str)
 	file.close()
