@@ -54,7 +54,7 @@ def stats(request):
 	Date_min = scd.filter().aggregate(Min('date'))["date__min"]
 	Date_max = scd.filter().aggregate(Max('date'))["date__max"]
 	Age_Adult_count = scd.filter(age = "ADULT").count()
-	Age_Juvenile_count = scd.filter(age = "JUVENILE").count()
+	Age_Other_count = scd.filter(age = "OTHER").count()
 	Shift_AM_count = scd.filter(shift = "AM").count()
 	Shift_PM_count = scd.filter(shift = "PM").count()
 	Latitude_min = scd.filter().aggregate(Min('latitude'))["latitude__min"]
@@ -70,7 +70,7 @@ def stats(request):
 		"Date_min": Date_min,
 		"Date_max": Date_max,
 		"Age_Adult_count": Age_Adult_count,
-		"Age_Juvenile_count": Age_Juvenile_count,
+		"Age_Other_count": Age_Other_count,
 		"Shift_AM_count": Shift_AM_count,
 		"Shift_PM_count": Shift_PM_count,
 		"Latitude_min": Latitude_min,

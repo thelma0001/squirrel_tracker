@@ -103,7 +103,8 @@
 	</div>
 	
 	<div>
-
+		{% block content %}
+		<form  method='GET'>
 		<table class="altrowstable" id="alternatecolor">
 			<tbody>
 				<tr>
@@ -139,7 +140,7 @@
 				<tr>
 					<th>Age Count:</th>
 					<th>Adult:{{Age_Adult_count}}</th>
-					<th>Juvenile:{{Age_Juvenile_count}}</th>
+					<th>Other:{{Age_Other_count}}</th>
 					<th></th>
 				</tr>
 				<tr>
@@ -150,6 +151,8 @@
 				</tr>
 			</tbody>
 		</table>
+		</form>
+		{% endblock %}
 	</div>
 
 </body>
